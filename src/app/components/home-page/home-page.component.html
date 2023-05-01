@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="header-content">
+    <div class="person-detail-text">
+      Person Details
+    </div>
+    <a class="person-button" routerLink="/add-data">
+      <mat-icon>person_add</mat-icon>Add User</a>
+
+  </div>
+  <div class="table-main">
+    <table id="table-display" class="table">
+      <tr>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Modify</th>
+      </tr>
+      <tr *ngFor="let u of userList">
+        <td>{{u.name}}</td>
+        <td>{{u.address}}</td>
+        <td>{{u.city}}</td>
+        <td>{{u.state}}</td>
+        <td>{{u.pincode}}</td>
+        <td>{{u.phone}}</td>
+        <td>{{u.email}}</td>     
+        <td>
+          <img id={{u.id}} src="../assets/icons/delete.png" alt="delete" (click)="remove(u.id)"/>
+          &nbsp;
+          <img id={{u.id}} src="../assets/icons/edit.png" alt="edit" (click)="update(u)" />
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

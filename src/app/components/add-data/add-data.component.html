@@ -1,0 +1,83 @@
+<div class="form-content">
+    <form class="form" [formGroup]="usersFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-head">Address Book Form</div>
+
+        <!-- -----Input Name------- -->
+        <div class="row-content">
+            <mat-label class="label text">Full Name</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input type="name" class="name-input" matInput formControlName="name" color="primary" />
+                <mat-error *ngIf="myError('name', 'required')">Name is required!</mat-error>
+                <mat-error *ngIf="myError('name', 'minlength')">Name should atleast 3 letters!</mat-error>
+
+            </mat-form-field>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="row-content">
+            <mat-label class="label text">Phone Number</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input type="phone" class="phone-input" matInput formControlName="phone" color="primary" />
+            </mat-form-field>
+        </div>
+
+        <!-- Email Id -->
+        <div class="row-content">
+            <mat-label class="label text">Email Id</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input type="text" class="email-input" matInput formControlName="email" color="primary" />
+                <!-- <mat-error *ngIf="myError('email', 'required')">email is required!</mat-error> -->
+            </mat-form-field>
+        </div>
+
+        <!-- Address -->
+        <div class="row-content">
+            <mat-label class="label text">Address</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <textarea matInput id="address" class="input" name="address" placeholder="mention address"
+                    style="height: 100px" formControlName="address" required></textarea>
+                <mat-error *ngIf="myError('address', 'required')">address is required!</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- City -->
+        <div class="row-content">
+            <mat-label class="label text">City</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input type="city" class="city-input" matInput formControlName="city" color="primary" />
+            </mat-form-field>
+        </div>
+
+        <!-- State -->
+        <div class="row-content">
+            <mat-label class="label text">State </mat-label>
+            <mat-form-field appearance="fill">
+                <mat-label>Select State</mat-label>
+                <mat-select formControlName="state">
+                    <mat-option *ngFor="let stateName of states" [value]="stateName.name">
+                        {{stateName.name}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- Zipcode -->
+        <div class="row-content">
+            <mat-label class="label text">Zipcode </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input type="text" class="zipcode-input" matInput formControlName="pincode" color="primary" />
+            </mat-form-field>
+        </div>
+
+        <div class="buttonParent">
+            <div class="submit-reset">
+                <button mat-raised-button type="submit" color="primary" class="button submitButton" id="submitButton">
+                    Add
+                </button>
+
+                <button mat-stroked-button color="accent" type="reset" class="resetButton button">
+                    Reset
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
